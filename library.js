@@ -25,9 +25,9 @@ class Book {
     borrowBook() {
       if (this.available) {
         this.available = false;
-      console.log(`Book "${this.title}" has been borrowed on ${ new Date().toUTCString()}`);
+      console.log(`Book: "${this.title}" has been borrowed on ${ new Date().toUTCString()}`);
       } else {
-        console.log(`Book "${this.title}" is not available.`);
+        console.log(`Book: "${this.title}" is not available.`);
       }
     }
   
@@ -46,7 +46,7 @@ class Book {
     addBook(book) {
       if (book instanceof Book) {
         this.books.push(book);
-        console.log(`Book "${book.title}" has been added to the library on ${ new Date().toUTCString()}.`);
+        console.log(`Book: "${book.title}" has been added to the library on ${ new Date().toUTCString()}.`);
       } else {
         console.log('Only Book objects can be added to the library.');
       }
@@ -77,10 +77,10 @@ class Book {
     downloadBook(isbn) {
       const book = this.books.find((book) => book.isbn === isbn);
       if (book && book.available) {
-        console.log(`Book "${book.title}" has been downloaded.`);
+        console.log(`Book: "${book.title}" has been downloaded.`);
         book.borrowBook(); // Mark the book as borrowed
       } else if (book && !book.available) {
-        console.log(`Book "${book.title}" is not available for download.`);
+        console.log(`Book: "${book.title}" is not available for download.`);
       } else {
         console.log(`Book with ISBN "${isbn}" not found in the library.`);
       }
